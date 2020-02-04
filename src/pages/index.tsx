@@ -6,8 +6,7 @@ import styled from 'styled-components'
 import Layout from '../layout/index'
 
 // Components
-import Image from '../components/Image'
-import Heading from '../components/Heading'
+import Chat from '../components/Chat'
 
 interface IndexPageProps {
   location: {
@@ -36,7 +35,6 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   padding: ${p => p.theme.spacing.unit * 3}px;
-  background: #003580;
 `
 
 export default ({ data, location }: IndexPageProps) => {
@@ -44,11 +42,7 @@ export default ({ data, location }: IndexPageProps) => {
   return (
     <Layout location={location}>
       <Wrapper>
-        <Image img={image.childImageSharp} />
-        <Heading
-          title={site.siteMetadata.title}
-          subtitle={site.siteMetadata.description}
-        />
+        <Chat />
       </Wrapper>
     </Layout>
   )
