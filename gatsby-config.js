@@ -2,14 +2,13 @@ const path = require('path')
 
 module.exports = {
   siteMetadata: {
-    site: `Gnonce-starter`,
-    title: `Gatsby Starter Gnonce`,
-    titleTemplate: `%s - Gnonce`,
-    description: `Gatsby + Typescript + Styled Components = 💖`,
-    siteUrl: `https://gatsby-starter-gnonce.netlify.com/`,
+    site: `Atte Sarkonen`,
+    title: `Atte Sarkonen`,
+    titleTemplate: `%s`,
+    description: ``,
+    siteUrl: `https://attesarkonen.fi`,
     language: `en`,
-    color: `#003580`,
-    twitter: 'gnonce',
+    color: `#ffffff`,
   },
   plugins: [
     {
@@ -22,11 +21,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gnonce`,
-        short_name: `Gnonce`,
+        name: `Atte Sarkonen`,
+        short_name: `Atte Sarkonen`,
         start_url: `/`,
-        background_color: `#003580`,
-        theme_color: `#003580`,
+        background_color: `#ffffff`,
+        theme_color: `#ffffff`,
         display: `standalone`,
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
         include_favicon: true, // Include favicon

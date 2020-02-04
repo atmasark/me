@@ -86,7 +86,6 @@ const QueryHead = graphql`
         defaultDescription: description
         language
         color
-        twitter
       }
     }
   }
