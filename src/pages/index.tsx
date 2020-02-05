@@ -34,7 +34,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: ${p => p.theme.spacing.unit * 3}px;
 `
 
 export default ({ data, location }: IndexPageProps) => {

@@ -2,9 +2,8 @@ import React, { useReducer, useEffect } from 'react'
 import styled, { keyframes } from 'styled-components'
 
 const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
+  display: grid;
+  grid-template-rows: 1fr 9%;
   color: white;
   height: 100%;
   width: 100%;
@@ -17,6 +16,11 @@ const fadeIn = keyframes`
   to {
     opacity:1;
   }
+`
+
+const Messages = styled.div`
+  padding: ${p => p.theme.spacing.unit * 3}px;
+  background: #e6e6e6;
 `
 
 const MessageContainer = styled.div`
@@ -46,6 +50,11 @@ const MessageContainer = styled.div`
         ? '#333333 transparent transparent transparent;'
         : '#f3f3f3 transparent transparent transparent;'};
   }
+`
+
+const AnswerContainer = styled.div`
+  width: 100%;
+  justify-self: flex-end;
 `
 
 const Message = styled.p`
@@ -109,14 +118,17 @@ export default () => {
   })
   return (
     <Wrapper>
-      {state.messages.map(
-        (msg, i) =>
-          msg.isVisible && (
-            <MessageContainer key={i} user={msg.user}>
-              <Message>{msg.content}</Message>
-            </MessageContainer>
-          )
-      )}
+      <Messages>
+        {state.messages.map(
+          (msg, i) =>
+            msg.isVisible && (
+              <MessageContainer key={i} user={msg.user}>
+                <Message>{msg.content}</Message>
+              </MessageContainer>
+            )
+        )}
+      </Messages>
+      <AnswerContainer />
     </Wrapper>
   )
 }
