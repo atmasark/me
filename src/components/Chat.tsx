@@ -1,21 +1,33 @@
 import React, { useReducer, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   text-align: center;
   color: white;
+  height: 100%;
+  width: 100%;
+`
+
+const fadeIn = keyframes`
+  from {
+    opacity:0;
+  }
+  to {
+    opacity:1;
+  }
 `
 
 const MessageContainer = styled.div`
   position: relative;
+  animation: ${fadeIn} ease-in-out 0.15s;
   padding: 7px 10px;
   background: blue;
   border-radius: 10px;
   width: fit-content;
   margin: ${(p: { user: boolean }) =>
-    p.user ? '0 20px 10px 40px' : '0 40px 10px 20px'};
+    p.user ? '0 0px 10px 40px' : '0 40px 10px 0px'};
   align-self: ${(p: { user: boolean }) => p.user && 'flex-end'};
   background: ${(p: { user: boolean }) => (p.user ? '#333333;' : '#f3f3f3')};
   color: ${(p: { user: boolean }) => (p.user ? '#fff' : '#000')};
@@ -85,10 +97,7 @@ export default () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   useEffect(() => {
     state.messages.map((msg, i) => {
-      if (
-        (!msg.isVisible && i === 0) ||
-        (!msg.isVisible && state.messages[i - 1].isVisible)
-      ) {
+      if (!msg.isVisible && (i === 0 || state.messages[i - 1].isVisible)) {
         setTimeout(() => {
           dispatch({
             type: 'SHOW_MESSAGE',
