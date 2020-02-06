@@ -15,11 +15,29 @@ export type Message = {
   content: string
 }
 
-export type State = {
-  messages: Message[]
+export type Question = {
+  key: string
+  content: string
+  answer: string[]
 }
 
-export type Action = {
-  type: 'SHOW_MESSAGE'
-  index: number
+export type State = {
+  isLoading: boolean
+  messages: Message[]
+  questions: Question[]
 }
+
+export type Action =
+  | {
+      type: 'SHOW_MESSAGE'
+      index: number
+    }
+  | {
+      type: 'ADD_MESSAGE'
+      key: string
+      content: string
+      answers: string[]
+    }
+  | {
+      type: 'SET_READY'
+    }
