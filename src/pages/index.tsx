@@ -2,6 +2,9 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
+// State
+import { StateProvider } from '../state/StateProvider'
+
 // Layout
 import Layout from '../layout/index'
 
@@ -40,9 +43,11 @@ export default ({ data, location }: IndexPageProps) => {
   const { image, site } = data
   return (
     <Layout location={location}>
-      <Wrapper>
-        <Chat />
-      </Wrapper>
+      <StateProvider>
+        <Wrapper>
+          <Chat />
+        </Wrapper>
+      </StateProvider>
     </Layout>
   )
 }

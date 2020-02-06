@@ -1,5 +1,6 @@
-import React, { useReducer, useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
+import { StateContext } from '../state/StateProvider'
 
 const Wrapper = styled.div`
   display: grid;
@@ -61,49 +62,8 @@ const Message = styled.p`
   margin: 0;
 `
 
-const initialState = {
-  messages: [
-    {
-      user: false,
-      isVisible: false,
-      content: 'Hello there!',
-    },
-    {
-      user: false,
-      isVisible: false,
-      content: "I'm Atte",
-    },
-    {
-      user: false,
-      isVisible: false,
-      content: 'Wonder how you got here..',
-    },
-    {
-      user: false,
-      isVisible: false,
-      content: "Anyway, what'cha want?",
-    },
-  ],
-}
-
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'SHOW_MESSAGE':
-      return {
-        messages: state.messages.map((msg, i) => {
-          if (i === action.index) {
-            return { ...msg, isVisible: true }
-          }
-          return msg
-        }),
-      }
-    default:
-      throw new Error()
-  }
-}
-
 export default () => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const { state, dispatch } = useContext(StateContext)
   useEffect(() => {
     state.messages.map((msg, i) => {
       if (!msg.isVisible && (i === 0 || state.messages[i - 1].isVisible)) {
