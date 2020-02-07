@@ -33,19 +33,27 @@ const fadeOut = keyframes`
 `
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: 9%;
-  background: white;
-  display: flex;
-  padding: 0px ${p => p.theme.spacing.unit}px;
-  overflow-x: scroll;
-  position: absolute;
+  border-top: 3px solid #e9e9e9;
+  position: relative;
   display: ${(p: { isInit: boolean; isDone: boolean; isLoading: boolean }) =>
     ((p.isLoading && p.isInit) || p.isDone) && 'none'};
   animation: ${(p: { isInit: boolean; isDone: boolean; isLoading: boolean }) =>
       (!p.isLoading && p.isInit && fadeIn) || (p.isDone && fadeOut)}
-    ease-in-out 0.5s forwards;
+    ease-in-out 0.75s forwards;
   bottom: 0;
+  overflow: hidden;
+`
+
+const ScrollableQuestions = styled.div`
+  padding: 0px ${p => p.theme.spacing.unit}px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  overflow-x: auto;
+  display: flex;
+  height: 100%;
 `
 
 const Question = styled.p`
@@ -79,15 +87,17 @@ export default () => {
       isDone={!state.questions.length}
       isLoading={state.isLoading}
     >
-      {state.questions.map((question, i) => (
-        <Question
-          isLoading={state.isLoading}
-          onClick={() => handleOnClick(question)}
-          key={i}
-        >
-          {question.content}
-        </Question>
-      ))}
+      <ScrollableQuestions>
+        {state.questions.map((question, i) => (
+          <Question
+            isLoading={state.isLoading}
+            onClick={() => handleOnClick(question)}
+            key={i}
+          >
+            {question.content}
+          </Question>
+        ))}
+      </ScrollableQuestions>
     </Wrapper>
   )
 }
