@@ -57,7 +57,7 @@ const ScrollableQuestions = styled.div`
 `
 
 const Question = styled.p`
-  font-size: 15px;
+  font-size: 16px;
   max-width: fit-content;
   display: flex;
   padding: 5px 10px;
