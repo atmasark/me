@@ -1,13 +1,29 @@
-import React, { useEffect, useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+
+import { media } from '../styles/styleUtils'
 
 import Messages from './chat/Messages'
 import Questions from './chat/Questions'
 
 const Wrapper = styled.div`
-  height: 100%;
-  width: 100%;
-  background: #e6e6e6;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-auto-rows: 9%;
+  border: 40px solid #2e2e2e;
+  width: 411px;
+  height: 800px;
+  border-width: 55px 7px;
+  border-radius: 40px;
+  box-shadow: 0px 3px 0 #101010, 0px 4px 0 #101010, 0px 5px 0 #101010,
+    0px 7px 0 #101010, 0px 10px 20px #1a1a1a;
+  overflow: hidden;
+  ${media.md`
+    border: none;
+    border-radius: unset;
+    height: 100%;
+    width: 100%;
+  `}
 `
 
 export default () => {
