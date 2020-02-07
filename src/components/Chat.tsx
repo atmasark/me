@@ -18,12 +18,15 @@ const Wrapper = styled.div`
   box-shadow: 0px 3px 0 #101010, 0px 4px 0 #101010, 0px 5px 0 #101010,
     0px 7px 0 #101010, 0px 10px 20px #1a1a1a;
   overflow: hidden;
-  ${media.md`
+  @media screen and (max-height: 850px), (max-width: 768px) {
     border: none;
     border-radius: unset;
     height: 100%;
     width: 100%;
-  `}
+  }
+  @media screen and (orientation: landscape) and (max-width: 850px) {
+    grid-auto-rows: 9vw;
+  }
 `
 
 export default () => {
