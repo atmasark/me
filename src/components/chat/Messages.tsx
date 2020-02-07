@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useRef } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { StateContext } from '../../state/StateProvider'
 
@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
+  overflow-y: auto;
   padding: ${p => p.theme.spacing.unit * 3}px;
 `
 
@@ -53,6 +54,8 @@ const Message = styled.p`
 
 export default () => {
   const { state, dispatch } = useContext(StateContext)
+  const messageArea = useRef(null)
+
   useEffect(() => {
     state.messages.map((msg, i) => {
       if (!msg.isVisible && (i === 0 || state.messages[i - 1].isVisible)) {
@@ -66,9 +69,10 @@ export default () => {
     })
     if (state.isLoading && state.messages.every(msg => msg.isVisible))
       dispatch({ type: 'SET_READY' })
+    messageArea.current.scrollTop = messageArea.current.scrollHeight
   })
   return (
-    <Wrapper>
+    <Wrapper ref={messageArea}>
       {state.messages.map(
         (msg, i) =>
           msg.isVisible && (
