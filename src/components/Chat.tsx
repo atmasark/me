@@ -1,15 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { media } from '../styles/styleUtils'
-
 import Messages from './chat/Messages'
 import Questions from './chat/Questions'
 
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 1fr;
-  grid-auto-rows: 9%;
+  grid-auto-rows: 70px;
   border: 40px solid #2e2e2e;
   width: 411px;
   height: 800px;
@@ -23,9 +21,6 @@ const Wrapper = styled.div`
     border-radius: unset;
     height: 100%;
     width: 100%;
-  }
-  @media screen and (orientation: landscape) and (max-width: 850px) {
-    grid-auto-rows: 9vw;
   }
 `
 
