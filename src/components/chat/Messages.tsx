@@ -17,6 +17,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   overflow-y: auto;
   padding: ${p => p.theme.spacing.unit * 3}px;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
 `
 
 const Container = styled.div`
@@ -72,12 +77,12 @@ export default () => {
     if (state.isLoading && state.messages.every(msg => msg.isVisible)) {
       dispatch({ type: 'SET_READY' })
     }
-  
-    if(state.isLoading) {
+
+    if (state.isLoading) {
       messagesEnd.current.scrollIntoView()
     }
-
-  })
+  }),
+    [state.messages]
   return (
     <Wrapper>
       {state.messages.map(
@@ -88,7 +93,7 @@ export default () => {
             </Container>
           )
       )}
-      <MessagesEnd ref={messagesEnd}/>
+      <MessagesEnd ref={messagesEnd} />
     </Wrapper>
   )
 }
