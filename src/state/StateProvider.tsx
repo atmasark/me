@@ -36,7 +36,8 @@ const initialState = {
       content: 'How can I contact you?',
       answers: [
         "As a paranoid human being I really don't feel comfortable sharing my phone number out here",
-        'Anyway, you can still get in contact with me via LinkedIn.. Or email, if you fancy that',
+        'Anyway, you can still get in contact with me via LinkedIn: https://linkedin.com/in/atte-sarkonen',
+        'You can also email me at atte@gnonce.com',
       ],
     },
     {

@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useRef } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { StateContext } from '../../state/StateProvider'
+import { containsLinks, linkify } from '../../utils/urlTools'
 
 const fadeIn = keyframes`
   from {
@@ -89,7 +90,11 @@ export default () => {
         (msg, i) =>
           msg.isVisible && (
             <Container key={i} user={msg.user}>
-              <Message>{msg.content}</Message>
+              {containsLinks(msg.content) ? (
+                <Message>{linkify(msg.content)}</Message>
+              ) : (
+                <Message>{msg.content}</Message>
+              )}
             </Container>
           )
       )}
