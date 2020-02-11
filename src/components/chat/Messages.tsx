@@ -61,7 +61,7 @@ const MessagesEnd = styled.div``
 
 export default () => {
   const { state, dispatch } = useContext(StateContext)
-  const messagesEnd = useRef(null)
+  const messagesEnd = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     state.messages.map((msg, i) => {
@@ -78,7 +78,7 @@ export default () => {
       dispatch({ type: 'SET_READY' })
     }
 
-    if (state.isLoading) {
+    if (state.isLoading && messagesEnd.current) {
       messagesEnd.current.scrollIntoView()
     }
   }),

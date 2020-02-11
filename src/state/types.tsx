@@ -18,7 +18,7 @@ export type Message = {
 export type Question = {
   key: string
   content: string
-  answer: string[]
+  answers: string[]
 }
 
 export type State = {

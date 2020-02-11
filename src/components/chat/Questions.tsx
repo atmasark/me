@@ -2,6 +2,9 @@ import React, { useContext } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { StateContext } from '../../state/StateProvider'
 
+import { Question as QuestionType } from '../../state/types'
+
+
 const slideIn = keyframes`
   0% {
     margin-left: 100%;
@@ -74,7 +77,7 @@ const Question = styled.p`
 
 export default () => {
   const { state, dispatch } = useContext(StateContext)
-  const handleOnClick = question =>
+  const handleOnClick = (question: QuestionType) =>
     dispatch({
       type: 'ADD_MESSAGE',
       key: question.key,
