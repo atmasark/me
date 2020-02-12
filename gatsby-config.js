@@ -5,7 +5,7 @@ module.exports = {
     site: `Atte Sarkonen`,
     title: `Atte Sarkonen`,
     titleTemplate: `%s`,
-    description: ``,
+    description: `Just being me`,
     siteUrl: `https://attesarkonen.fi`,
     language: `en`,
     color: `#ffffff`,
