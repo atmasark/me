@@ -29,7 +29,12 @@ const initialState = {
     {
       key: 'occupation',
       content: 'What do you do?',
-      answers: ["I'm a fullstack developer"],
+      answers: [
+        "Don't really like fancy titles",
+        'But I like to code',
+        'And I mostly do web stuff, both back- and frontend',
+        'So I guess that makes me a full stack developer :)',
+      ],
     },
     {
       key: 'contact',
