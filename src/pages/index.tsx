@@ -32,7 +32,7 @@ interface IndexPageProps {
 
 const Wrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -41,6 +41,12 @@ const Wrapper = styled.div`
 
 export default ({ data, location }: IndexPageProps) => {
   const { image, site } = data
+  let vh = window.innerHeight * 0.01
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+  window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01
+    document.documentElement.style.setProperty('--vh', `${vh}px`)
+  })
   return (
     <Layout location={location}>
       <StateProvider>

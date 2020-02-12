@@ -58,11 +58,9 @@ const Message = styled.p`
   margin: 0;
 `
 
-const MessagesEnd = styled.div``
-
 export default () => {
   const { state, dispatch } = useContext(StateContext)
-  const messagesEnd = useRef<HTMLDivElement>(null)
+  const messageArea = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     state.messages.map((msg, i) => {
@@ -79,13 +77,13 @@ export default () => {
       dispatch({ type: 'SET_READY' })
     }
 
-    if (state.isLoading && messagesEnd.current) {
-      messagesEnd.current.scrollIntoView()
+    if (state.isLoading && messageArea.current) {
+      messageArea.current.scrollTop = messageArea.current.scrollHeight
     }
   }),
     [state.messages]
   return (
-    <Wrapper>
+    <Wrapper ref={messageArea}>
       {state.messages.map(
         (msg, i) =>
           msg.isVisible && (
@@ -98,7 +96,6 @@ export default () => {
             </Container>
           )
       )}
-      <MessagesEnd ref={messagesEnd} />
     </Wrapper>
   )
 }

@@ -4,7 +4,6 @@ import { StateContext } from '../../state/StateProvider'
 
 import { Question as QuestionType } from '../../state/types'
 
-
 const slideIn = keyframes`
   0% {
     margin-left: 100%;
