@@ -9,8 +9,8 @@ const Wrapper = styled.div`
   grid-template-rows: 1fr;
   grid-auto-rows: 70px;
   border: 40px solid #2e2e2e;
-  width: 411px;
-  height: 800px;
+  width: calc(41vh);
+  height: calc(80vh);
   border-width: 55px 7px;
   border-radius: 40px;
   box-shadow: 0px 3px 0 #101010, 0px 4px 0 #101010, 0px 5px 0 #101010,
