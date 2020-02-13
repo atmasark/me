@@ -4,10 +4,12 @@ import { StateContext } from '../../state/StateProvider'
 
 import { Question as QuestionType } from '../../state/types'
 
+// Animations for questions
 const slideIn = keyframes`
   0% {
     margin-left: 100%;
     width: 300%;
+    opacity: 0;
   }
   100% {
     margin-left: 0%;
@@ -16,6 +18,20 @@ const slideIn = keyframes`
   }
 `
 
+const slideOut = keyframes`
+  0% {
+    margin-left: 0%;
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    margin-left: 100%;
+    width: 300%;
+    opacity: 0;
+  }
+`
+
+// Animations for wrapper
 const fadeIn = keyframes`
   from {
     bottom: -100px;
@@ -41,7 +57,7 @@ const Wrapper = styled.div`
     ((p.isLoading && p.isInit) || p.isDone) && 'none'};
   animation: ${(p: { isInit: boolean; isDone: boolean; isLoading: boolean }) =>
       (!p.isLoading && p.isInit && fadeIn) || (p.isDone && fadeOut)}
-    ease-in-out 0.75s forwards;
+    ease-in-out 0.5s forwards;
   bottom: 0;
   overflow: hidden;
 `
@@ -70,13 +86,17 @@ const Question = styled.p`
   white-space: nowrap;
   margin: 0px 10px;
   opacity: 0;
-  animation: ${(p: { isLoading: boolean }) => !p.isLoading && slideIn} 0.5s
-    ease-out 0.75s forwards;
+  animation: ${(p: { isLoading: boolean }) =>
+      !p.isLoading ? slideIn : slideOut}
+    ease-out 0.5s forwards;
+  animation-delay: ${(p: { isLoading: boolean }) =>
+    !p.isLoading ? '0.5s' : '0s'};
 `
 
 export default () => {
   const { state, dispatch } = useContext(StateContext)
-  const handleOnClick = (question: QuestionType) =>
+  const handleOnClick = (question: QuestionType, isLoading: boolean) =>
+    !isLoading &&
     dispatch({
       type: 'ADD_MESSAGE',
       key: question.key,
@@ -93,7 +113,7 @@ export default () => {
         {state.questions.map((question, i) => (
           <Question
             isLoading={state.isLoading}
-            onClick={() => handleOnClick(question)}
+            onClick={() => handleOnClick(question, state.isLoading)}
             key={i}
           >
             {question.content}
