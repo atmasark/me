@@ -1,7 +1,6 @@
 import React, { useEffect, useContext, useRef } from 'react'
 import styled, { keyframes } from 'styled-components'
 import { StateContext } from '../../state/StateProvider'
-import { containsLinks, linkify } from '../../utils/urlTools'
 
 const fadeIn = keyframes`
   from {
@@ -54,10 +53,6 @@ const Container = styled.div`
   }
 `
 
-const Message = styled.p`
-  margin: 0;
-`
-
 export default () => {
   const { state, dispatch } = useContext(StateContext)
   const messageArea = useRef<HTMLDivElement>(null)
@@ -87,13 +82,11 @@ export default () => {
       {state.messages.map(
         (msg, i) =>
           msg.isVisible && (
-            <Container key={i} user={msg.user}>
-              {containsLinks(msg.content) ? (
-                <Message>{linkify(msg.content)}</Message>
-              ) : (
-                <Message>{msg.content}</Message>
-              )}
-            </Container>
+            <Container
+              key={i}
+              user={msg.user}
+              dangerouslySetInnerHTML={{ __html: msg.content }}
+            ></Container>
           )
       )}
     </Wrapper>
