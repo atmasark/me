@@ -12,17 +12,24 @@ const initialState = {
     {
       user: false,
       isVisible: false,
-      content: "I'm Atte",
+      content: "I'm Atte's.. agent",
     },
     {
       user: false,
       isVisible: false,
-      content: 'Wonder how you got here..',
+      content:
+        "If you want to talk to real me, hit me up at <a href='mailto:atte@gnonce.com'>atte@gnonce.com</a>",
     },
     {
       user: false,
       isVisible: false,
-      content: "Anyway, what'cha want?",
+      content:
+        "I can also be found from: <br> <a href='https://linkedin.com/in/atmasark'>linkedin.com/in/atmasark</a> <br/><a href='https://github.com/atmasark'>github.com/atmasark</a>",
+    },
+    {
+      user: false,
+      isVisible: false,
+      content: 'Have a nice day! Or would you have wanted to know more?',
     },
   ],
   questions: [
@@ -37,18 +44,22 @@ const initialState = {
       ],
     },
     {
-      key: 'contact',
-      content: 'How can I contact you?',
+      key: 'experience',
+      content: 'Work experience, shortly. Go!',
       answers: [
-        "As a paranoid human being I really don't feel comfortable sharing my phone number out here",
-        'Anyway, you can still get in contact with me via LinkedIn: https://linkedin.com/in/atte-sarkonen',
-        'You can also email me at atte@gnonce.com',
+        'Worked in various academic research groups at University of Jyväskylä for a year during my studies',
+        'Co-founded Gnonce in late 2018, self-employing ourselves by working as a subcontractor for publicly listed companies and participating in joint ventures',
+        'More in-depth explanations in my LinkedIn',
       ],
     },
     {
-      key: 'meaningOfLife',
-      content: "What's the meaning of life?",
-      answers: ['To be alive'],
+      key: 'contact',
+      content: 'How can I contact you, again?',
+      answers: [
+        "As a paranoid human being I really don't feel comfortable sharing my phone number out here",
+        "Anyway, you can still get in contact with me via LinkedIn: <a href='https://linkedin.com/in/atmasark'>linkedin.com/in/atmasark</a>",
+        "You can also email me at <a href='mailto:atte@gnonce.com'>atte@gnonce.com</a>",
+      ],
     },
   ],
 }

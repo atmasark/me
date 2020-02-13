@@ -105,7 +105,7 @@ export default () => {
     })
   return (
     <Wrapper
-      isInit={state.messages.length === 4}
+      isInit={state.messages.length === 5}
       isDone={!state.questions.length}
       isLoading={state.isLoading}
     >
