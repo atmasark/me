@@ -13,7 +13,7 @@ const fadeIn = keyframes`
 
 const Wrapper = styled.div`
   display: flex;
-  height: 100%;
+  height: 1fr;
   flex-direction: column;
   overflow-y: auto;
   padding: ${p => p.theme.spacing.unit * 3}px;
