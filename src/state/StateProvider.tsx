@@ -84,7 +84,7 @@ const reducer = (state: State, action: Action) => {
         isLoading: true,
         messages: [
           ...state.messages,
-          { user: true, isVisible: true, content: action.content },
+          { user: true, content: action.content },
           ...action.answers.map(answer => ({
             user: false,
             isVisible: false,

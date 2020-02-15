@@ -11,7 +11,7 @@ export type ContextProps = {
 
 export type Message = {
   user: boolean
-  isVisible: boolean
+  isVisible?: boolean
   content: string
   delay?: number
 }
