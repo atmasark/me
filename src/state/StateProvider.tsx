@@ -8,11 +8,13 @@ const initialState = {
       user: false,
       isVisible: false,
       content: 'Hello there!',
+      delay: 750,
     },
     {
       user: false,
       isVisible: false,
       content: "I'm Atte's.. agent",
+      delay: 1250,
     },
     {
       user: false,

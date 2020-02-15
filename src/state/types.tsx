@@ -13,6 +13,7 @@ export type Message = {
   user: boolean
   isVisible: boolean
   content: string
+  delay?: number
 }
 
 export type Question = {
@@ -37,6 +38,7 @@ export type Action =
       key: string
       content: string
       answers: string[]
+      delay?: number
     }
   | {
       type: 'SET_READY'

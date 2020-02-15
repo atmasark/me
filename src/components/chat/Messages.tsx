@@ -65,7 +65,7 @@ export default () => {
             type: 'SHOW_MESSAGE',
             index: i,
           })
-        }, !msg.user && 1750)
+        }, !msg.user && (msg.delay || 1750))
       }
     })
     if (state.isLoading && state.messages.every(msg => msg.isVisible)) {
