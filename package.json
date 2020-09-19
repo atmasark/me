@@ -1,53 +1,25 @@
 {
   "name": "me",
   "version": "1.0.0",
-  "description": "me - my personal website",
-  "private": true,
+  "description": "",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{ts,tsx}",
-    "lint": "tslint 'src/**/*.{ts,tsx}'",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
-    "preload-fonts": "gatsby-preload-fonts"
+    "start": "webpack-dev-server --open --hot",
+    "build": "webpack"
   },
-  "dependencies": {
-    "@types/react": "^16.9.19",
-    "@types/react-dom": "^16.9.5",
-    "@types/react-helmet": "^5.0.15",
-    "@types/styled-components": "^4.4.3",
-    "babel-plugin-styled-components": "^1.10.7",
-    "gatsby": "^2.19.17",
-    "gatsby-image": "^2.2.41",
-    "gatsby-plugin-manifest": "^2.2.41",
-    "gatsby-plugin-offline": "^3.0.34",
-    "gatsby-plugin-preload-fonts": "^1.1.1",
-    "gatsby-plugin-react-helmet": "^3.1.22",
-    "gatsby-plugin-sharp": "^2.4.5",
-    "gatsby-plugin-sitemap": "^2.2.27",
-    "gatsby-plugin-styled-components": "^3.1.19",
-    "gatsby-plugin-typescript": "^2.1.27",
-    "gatsby-source-filesystem": "^2.1.48",
-    "gatsby-transformer-sharp": "^2.3.14",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "styled-components": "^4.4.1",
-    "typescript": "^3.7.5"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atmasark/me.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/atmasark/me/issues"
+  },
+  "homepage": "https://github.com/atmasark/me#readme",
   "devDependencies": {
-    "prettier": "^1.19.1",
-    "tslint": "^5.20.1",
-    "tslint-config-airbnb": "^5.11.2",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.2.0"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
 }
